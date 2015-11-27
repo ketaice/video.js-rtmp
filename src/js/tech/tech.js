@@ -140,6 +140,10 @@ class Tech extends Component {
     return createTimeRange(0, 0);
   }
 
+  bufferLength(value) {
+  	return 0;
+  }
+
   /**
    * Get buffered percent
    *

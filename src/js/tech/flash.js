@@ -136,6 +136,11 @@ class Flash extends Tech {
     this.el_.vjs_pause();
   }
 
+  stop() {
+  	this.setCurrentTime(0);
+    this.el_.vjs_stop();
+  }
+
   /**
    * Get/set video
    *
@@ -280,6 +285,18 @@ class Flash extends Tech {
       return createTimeRange();
     }
     return createTimeRange(ranges[0][0], ranges[0][1]);
+  }
+
+  bufferLength(value) {
+  	if (value === undefined){
+  		return this.el_.vjs_getProperty('bufferLength');
+  	}
+  	
+  	return this.setbufferLength(value);
+  }
+  
+  setbufferLength(value) {
+  	this.el_.vjs_setProperty('bufferLength', value);
   }
 
   /**

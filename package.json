@@ -18,7 +18,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/videojs/video.js.git"
+    "url": "https://github.com/ketaice/video.js-rtmp.git"
   },
   "main": "./dist/video.js",
   "style": "./dist/video-js.css",

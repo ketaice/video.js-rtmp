@@ -641,7 +641,7 @@ class Player extends Component {
     // trigger mousedown/up.
     // http://stackoverflow.com/questions/1444562/javascript-onclick-event-over-flash-object
     // Any touch events are set to block the mousedown event from happening
-    this.on(this.tech_, 'mousedown', this.handleTechClick_);
+    //this.on(this.tech_, 'mousedown', this.handleTechClick_);
 
     // If the controls were hidden we don't want that to change without a tap event
     // so we'll check if the controls were already showing before reporting user
@@ -669,7 +669,7 @@ class Player extends Component {
     this.off(this.tech_, 'touchstart', this.handleTechTouchStart_);
     this.off(this.tech_, 'touchmove', this.handleTechTouchMove_);
     this.off(this.tech_, 'touchend', this.handleTechTouchEnd_);
-    this.off(this.tech_, 'mousedown', this.handleTechClick_);
+    //this.off(this.tech_, 'mousedown', this.handleTechClick_);
   }
 
   /**
@@ -1228,6 +1228,11 @@ class Player extends Component {
     return this;
   }
 
+  stop() {
+    this.techCall_('stop');
+    return this;
+  }
+
   /**
    * Check if the player is paused
    * ```js
@@ -1384,6 +1389,16 @@ class Player extends Component {
     }
 
     return buffered;
+  }
+
+  bufferLength(value) {
+  	if (value === undefined) {
+	  	var length = this.techGet_('bufferLength');
+	  	
+	  	return length;
+	}
+	
+	this.techCall_('bufferLength', value);
   }
 
   /**
