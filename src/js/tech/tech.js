@@ -143,6 +143,14 @@ class Tech extends Component {
   bufferLength(value) {
   	return 0;
   }
+  
+  quarkMode(value) {
+  	return 0;
+  }
+  
+  channelMax(value) {
+  	return 0;
+  }
 
   /**
    * Get buffered percent

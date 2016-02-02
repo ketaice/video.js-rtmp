@@ -140,6 +140,18 @@ class Flash extends Tech {
   	this.setCurrentTime(0);
     this.el_.vjs_stop();
   }
+  
+  snapshot() {
+  	this.el_.vjs_snapshot();
+  }
+  
+  digitalzoom(type) {
+  	this.el_.vjs_digitalzoom(type);
+  }
+  
+  pageTurning(type) {
+  	this.el_.vjs_pageTurning(type);
+  }
 
   /**
    * Get/set video
@@ -297,6 +309,30 @@ class Flash extends Tech {
   
   setbufferLength(value) {
   	this.el_.vjs_setProperty('bufferLength', value);
+  }
+  
+  quarkMode(value) {
+  	if (value === undefined){
+  		return this.el_.vjs_getProperty('quarkMode');
+  	}
+  	
+  	return this.setquarkMode(value);
+  }
+  
+  setquarkMode(value) {
+  	this.el_.vjs_setProperty('quarkMode', value);
+  }
+  
+  channelMax(value) {
+  	if (value === undefined){
+  		return this.el_.vjs_getProperty('channelMax');
+  	}
+  	
+  	return this.setchannelMax(value);
+  }
+  
+  setchannelMax(value) {
+  	this.el_.vjs_setProperty('channelMax', value);
   }
 
   /**

@@ -1232,6 +1232,21 @@ class Player extends Component {
     this.techCall_('stop');
     return this;
   }
+  
+  snapshot() {
+  	this.techCall_('snapshot');
+  	return this;
+  }
+  
+  digitalzoom(type) {
+  	this.techCall_('digitalzoom', type);
+  	return this;
+  }
+  
+  pageTurning(type) {
+  	this.techCall_('pageTurning', type);
+  	return this;
+  }
 
   /**
    * Check if the player is paused
@@ -1399,6 +1414,26 @@ class Player extends Component {
 	}
 	
 	this.techCall_('bufferLength', value);
+  }
+  
+  quarkMode(value) {
+  	if (value === undefined) {
+	  	var length = this.techGet_('quarkMode');
+	  	
+	  	return length;
+	}
+	
+	this.techCall_('quarkMode', value);
+  }
+  
+  channelMax(value) {
+  	if (value === undefined) {
+	  	var length = this.techGet_('channelMax');
+	  	
+	  	return length;
+	}
+	
+	this.techCall_('channelMax', value);
   }
 
   /**
