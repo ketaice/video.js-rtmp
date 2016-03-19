@@ -141,8 +141,8 @@ class Flash extends Tech {
     this.el_.vjs_stop();
   }
   
-  snapshot() {
-  	this.el_.vjs_snapshot();
+  snapshot(lng) {
+  	this.el_.vjs_snapshot(lng);
   }
   
   digitalzoom(type) {

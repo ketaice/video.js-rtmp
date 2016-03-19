@@ -1233,8 +1233,8 @@ class Player extends Component {
     return this;
   }
   
-  snapshot() {
-  	this.techCall_('snapshot');
+  snapshot(lng) {
+  	this.techCall_('snapshot', lng);
   	return this;
   }
   
