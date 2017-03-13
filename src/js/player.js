@@ -1397,7 +1397,14 @@ class Player extends Component {
    * @method buffered
    */
   buffered() {
-    var buffered = this.techGet_('buffered');
+    /*var buffered = this.techGet_('buffered');*/
+    var buffered;
+    try {
+        buffered = this.techGet_('buffered');
+    } catch(e) {
+        //log(e);
+        buffered = createTimeRange(0,0);
+    }
 
     if (!buffered || !buffered.length) {
       buffered = createTimeRange(0,0);
