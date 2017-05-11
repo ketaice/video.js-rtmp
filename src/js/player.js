@@ -1249,6 +1249,44 @@ class Player extends Component {
   }
 
   /**
+   * Play a indicate channel
+   * 
+   * @param {*} type {index:idx, value:<chanId>_<streamType>_<beginTime>_<endTime>}
+   * @method playOne
+   */
+  playOne(type) {
+    this.techCall_('playOne', type);
+  	return this;
+  }
+
+  stopOne(idx) {
+    this.techCall_('stopOne', idx);
+  	return this;
+  }
+
+  /**
+   * Jump to select time when playback.
+   * 
+   * @param {*} type {index:idx, value:'<year><month><mday><hour><minute><second>'}
+   * @method playOne
+   */
+  jumpTo(type) {
+    this.techCall_('jumpTo', type);
+  	return this;
+  }
+
+  /**
+   * Playback speed control.
+   * 
+   * @param {*} type {index:idx, value:string, speed:int}
+   * @method playOne
+   */
+  speedControl(type) {
+    this.techCall_('speedControl', type);
+  	return this;
+  }
+
+  /**
    * Check if the player is paused
    * ```js
    *     var isPaused = myPlayer.paused();
@@ -1441,6 +1479,16 @@ class Player extends Component {
 	}
 	
 	this.techCall_('channelMax', value);
+  }
+
+  activeChannel(value) {
+    if (value === undefined) {
+      var idx = this.techGet_('activeChannel');
+
+      return idx;
+    }
+
+    this.techCall_('activeChannel', value);
   }
 
   /**
@@ -2732,9 +2780,11 @@ let navigator = window.navigator;
  */
 Player.prototype.options_ = {
   // Default order of fallback technology
-  techOrder: ['html5','flash'],
+  techOrder: ['webfire', 'flash','html5'],
+  //techOrder: ['html5','flash'],
   // techOrder: ['flash','html5'],
 
+  webfire: {},
   html5: {},
   flash: {},
 

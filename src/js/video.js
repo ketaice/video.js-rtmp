@@ -29,6 +29,7 @@ import xhr from 'xhr';
 import Tech from './tech/tech.js';
 import Html5 from './tech/html5.js';
 import Flash from './tech/flash.js';
+import Webfire from './tech/webfire.js';
 
 // HTML5 Element Shim for IE8
 if (typeof HTMLVideoElement === 'undefined') {
